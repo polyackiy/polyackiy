@@ -21,11 +21,3 @@ I build AI products end to end, from the business problem to production. Before 
 Python, FastAPI, Celery, PostgreSQL, pgvector, Redis, Next.js, TypeScript, Docker, MCP, Gemini and Claude APIs, Playwright, Swift.
 
 Daily driver: **Claude Code** (Max plan, daily since early releases); previously Cursor, Windsurf, Codex. In neural networks since 2019, in LLM products since the first public models.
-
-**How I think about this work**
-
-Numbers come from code, prose comes from models. An agent should measure whether its own advice worked. Guardrails belong in tests, not in instructions.
-
-Open to contract work — taking AI prototypes to production, agent systems, MCP servers, RAG.
-
-[Telegram](https://t.me/Bravotangocharlie)
