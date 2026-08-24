@@ -6,19 +6,15 @@ I build AI products end to end, from the business problem to production. Before 
 
 **What I'm building**
 
-**[ponpon.life](https://ponpon.life)** — AI personal trainer and nutrition coach. PWA, six languages, iOS and Android betas in progress. Multimodal: meals logged from a photo or by voice, form checked from a short clip, body composition estimated from an image. A background agent reviews yesterday's logs each morning and decides whether there is anything worth saying — usually there isn't.
+**[atools.vip](https://atools.vip)** — an AI manager for marketplace sellers: Ozon, Wildberries, Yandex Market, Avito. It watches prices, ads, supplies and reviews, catches problems early and proposes fixes, acting only inside the limits the seller sets. Ships a production MCP server (~30 tools) with per-shop OAuth consent and deny-by-default scoping at the dispatch layer. The part I like most: the agent scores its own past recommendations against what actually happened.
 
-Two design choices I'd defend anywhere. **The model proposes, the code disposes**: working weights, periodization and calorie corrections all come from a deterministic engine, and everything the model generates is validated before it reaches a human. And **the safety limits are code, not prompts** — eating-disorder protections that hold at any weight, a pregnancy mode that rebuilds both nutrition and training, a handoff to human support on a dark day. I don't guess whether the coach is any good; I measure it on 25 scenarios and took it from 64% to 84%.
+**[ponpon.life](https://ponpon.life)** — AI personal trainer and nutrition coach. PWA, six languages, iOS and Android betas. The model composes and talks, but every number comes from a deterministic engine, and safety limits live in code rather than prompts. Coach quality is measured on 25 scenarios: took it from 64% to 84%.
 
-**atools** *(private, demo on request)* — multi-tenant analytics and automation platform for Ozon / Wildberries / Yandex Market sellers. FastAPI, Next.js, PostgreSQL, pgvector, Redis, Celery, Docker. Ships a **production MCP server**: roughly 30 tools over unit economics, stock, pricing, supply, ads and reviews, with a company to shops to roles access model, per-shop OAuth consent, deny-by-default scoping at the dispatch layer, plan-based rate limits and response-size budgeting for model context. One tool implementation serves both the internal chat agent and external MCP clients.
+**[sozdai.app](https://sozdai.app)** — AI infographics for marketplace listings and Avito ads. Live SaaS with paying customers. Layered pipeline: a vision model reads the product, a second model works as art director, a classifier turns user wishes into structural overrides without breaking the hard core. ~1100 tests, CI/CD with zero-downtime deploys and auto-rollback.
 
-The part I'm most pleased with: the agent scores its own past recommendations against what actually happened, and writes up where it was wrong and why.
+**[camoufox-profile-manager](https://github.com/polyackiy/camoufox-profile-manager)** — open-source browser profile manager built on Camoufox. Python/FastAPI, Next.js, Playwright. MIT.
 
-**[sozdai.app](https://sozdai.app)** — AI infographics for marketplace listings and Avito ads. Live commercial SaaS with paying customers. A pipeline of several LLM roles: a vision model reads the product like a marketer, a second model plays art director and writes a per-generation brief on typography and composition. Prompts are layered — a hard core carrying platform rules, soft style defaults the user overrides in plain text. Text is rendered by code, never by the model. Around 1100 automated tests, CI/CD with zero-downtime deploys and auto-rollback.
-
-**[camoufox-profile-manager](https://github.com/polyackiy/camoufox-profile-manager)** — open-source browser profile manager built on Camoufox. Python and FastAPI backend, Next.js interface, Playwright automation. MIT.
-
-**[MacCam](https://github.com/polyackiy/MacCam)** — offline motion-detecting security camera for macOS. Lives in the menu bar, records HEVC clips on motion. No cloud, no network. Swift, MIT.
+**[MacCam](https://github.com/polyackiy/MacCam)** — offline motion-detecting security camera for macOS. Lives in the menu bar, records HEVC on motion, no cloud. Swift, MIT.
 
 **Stack**
 
@@ -28,7 +24,7 @@ Daily driver: **Claude Code** (Max plan, daily since early releases); previously
 
 **How I think about this work**
 
-Agents should measure whether their own advice worked. Numbers come from code, prose comes from models. Guardrails belong in tests, not in instructions.
+Numbers come from code, prose comes from models. An agent should measure whether its own advice worked. Guardrails belong in tests, not in instructions.
 
 Open to contract work — taking AI prototypes to production, agent systems, MCP servers, RAG.
 
